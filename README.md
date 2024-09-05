@@ -189,3 +189,10 @@ email,3
 - Lookup Table contains correct protocol names which can be mapped to protocol number in the log record using IANA mappings
 - Custom log format is supported when the field names are passed with the same name as in the Flow Log fields specification
 - Given the constraints, a single application will be able to meet the requirements. Dependencies like Redis will improve the performance but is an overkill given the time constraints for the exercise.
+
+## Future Work
+
+- In order to scale such solution, we can separate reader, parser, writer and insight generator module to scale them independently. It will also provide good cohesion and reduce tight coupling.
+- We can leverage message queues between these modules for communication thus making the solution language agnostic.
+- As of now, I am using HashMap to store the k-v pair. This responsibility can be shifted to Redis due to its performance.
+- Observability is required to notify devs of failures and take corrective/preventive measures.
