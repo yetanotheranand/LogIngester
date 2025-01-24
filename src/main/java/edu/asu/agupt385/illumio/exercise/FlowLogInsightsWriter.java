@@ -45,7 +45,7 @@ public class FlowLogInsightsWriter {
                 + ","
                 + store.getFrequency(pair));
         bufferedWriter.newLine();
-        frequencyByTag.merge(lookupTable.getTag(pair), 1L, Long::sum);
+        frequencyByTag.merge(lookupTable.getTag(pair), store.getFrequency(pair), Long::sum);
       }
 
       bufferedWriter.newLine();
